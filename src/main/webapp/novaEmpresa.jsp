@@ -12,8 +12,9 @@
 <title>Bem-vindo(a)</title>
 </head>
 <body>
+	
 	 <p>
-	   <%=nome + " cadastrado(a) com sucesso!"%>
+	  Usuario ${nomeUsuario} cadastrado com sucesso!
 	 </p>
 </body>
 </html>

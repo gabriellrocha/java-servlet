@@ -31,7 +31,7 @@ public class NovoUsuarioServlet extends HttpServlet {
 		// Chama o JSP
 		RequestDispatcher dispatcher = request.getRequestDispatcher("novaEmpresa.jsp");
 		
-		// Agrupa o nome da empresa no request que será passado para o JSP
+		// Agrupa o nome do usuario no request que será passado para o JSP
 		request.setAttribute("nomeUsuario", newUsuario.getNome());
 		dispatcher.forward(request, response);
 		
