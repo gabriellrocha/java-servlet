@@ -12,27 +12,29 @@ import javax.servlet.http.HttpServletResponse;
 import br.com.gabriel.entidades.Usuario;
 import br.com.gabriel.infra.Banco;
 
-@WebServlet({ "/novaUsuario", "/novoUsuarioServlet"})
+@WebServlet({ "/novoUsuario", "/novoUsuarioServlet"})
 public class NovoUsuarioServlet extends HttpServlet {
 	
 	private static final long serialVersionUID = 1L;
 	
-	public static Banco bancoDB = new Banco();
+	public static final Banco bancoDB = Banco.criarBancoDados();
 
-	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 		String nome = request.getParameter("nome");
-		String senha = request.getParameter("senha");
+		String data = request.getParameter("dataNascimento");
 		
-		Usuario newUsuario = new Usuario(1L, nome, senha);
+		Usuario newUsuario = new Usuario(1L, nome, null, data);
 		
 		bancoDB.cadastrarUsuario(newUsuario);
 		
 		// Chama o JSP
-		RequestDispatcher dispatcher = request.getRequestDispatcher("novaEmpresa.jsp");
+		RequestDispatcher dispatcher = request.getRequestDispatcher("novoUsuario.jsp");
 		
 		// Agrupa o nome do usuario no request que será passado para o JSP
 		request.setAttribute("nomeUsuario", newUsuario.getNome());
+		request.setAttribute("dataNascimento", newUsuario.getDataNascimento());
+		
 		dispatcher.forward(request, response);
 		
 		/* Exemplo de fluxo:

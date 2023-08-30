@@ -1,18 +1,23 @@
 package br.com.gabriel.entidades;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+
 public class Usuario {
 	
 	private Long id;
 	private String nome;
 	private String senha;
+	private String dataNascimento;
 	
 	public Usuario() {
 	}
 
-	public Usuario(Long id, String nome, String senha) {
+	public Usuario(Long id, String nome, String senha, String dataNascimento) {
 		this.id = id;
 		this.nome = nome;
 		this.senha = senha;
+		setDataNascimento(dataNascimento);
 	}
 
 	public Long getId() {
@@ -41,5 +46,26 @@ public class Usuario {
 	
 	public String toString() {
 		return this.nome;
+	}
+	
+	public String getDataNascimento() {
+		return this.dataNascimento;
+	}
+	
+	private void setDataNascimento(String data) {
+		
+		/* Será possível adicionar uma data de nascimento apenas quando instanciar um Usuario.
+		 * Método sem tratamento de Exceção adequado, pois o foco deste projeto é aprender
+		 * sobre JSP*/
+		
+		SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
+		
+		try {
+			sdf.parse(data);
+			this.dataNascimento = data;
+			
+		} catch (ParseException e) {
+			e.printStackTrace();
+		}		
 	}
 }

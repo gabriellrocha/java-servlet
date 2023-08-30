@@ -9,6 +9,20 @@ public class Banco {
 	
 	// Simulação de um banco de dados
 	
+	private Banco() {}
+	
+	private static Banco instance = null; 
+	
+	// Singleton
+	
+	public static Banco criarBancoDados() {
+		if (instance == null) {
+			instance = new Banco();
+		}
+		
+		return instance;
+	}
+	
 	private static List<Usuario> lista = new ArrayList<>();
 	
 	public void cadastrarUsuario(Usuario usuario) {

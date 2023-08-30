@@ -13,8 +13,10 @@
 <body>
 	<ul>
 	  <c:forEach items="${lista}" var="user">
-		  <li>${user.nome}</li>  
+		  <li>${user.nome} - ${user.dataNascimento} </li>
+		   
 	  </c:forEach>
+	  
 	</ul> 
 </body>
 </html>
