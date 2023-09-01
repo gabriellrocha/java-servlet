@@ -2,7 +2,6 @@ package br.com.gabriel.servlets;
 
 import java.io.IOException;
 
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -24,18 +23,20 @@ public class NovoUsuarioServlet extends HttpServlet {
 		String nome = request.getParameter("nome");
 		String data = request.getParameter("dataNascimento");
 		
-		Usuario newUsuario = new Usuario(1L, nome, null, data);
-		
+		Usuario newUsuario = new Usuario(null, nome, null, data);
 		bancoDB.cadastrarUsuario(newUsuario);
 		
+		
+		response.sendRedirect("listarUsuarios");
+		
 		// Chama o JSP
-		RequestDispatcher dispatcher = request.getRequestDispatcher("novoUsuario.jsp");
+//		RequestDispatcher dispatcher = request.getRequestDispatcher("novoUsuario.jsp");
 		
 		// Agrupa o nome do usuario no request que será passado para o JSP
-		request.setAttribute("nomeUsuario", newUsuario.getNome());
-		request.setAttribute("dataNascimento", newUsuario.getDataNascimento());
+//		request.setAttribute("nomeUsuario", newUsuario.getNome());
+//		request.setAttribute("dataNascimento", newUsuario.getDataNascimento());
 		
-		dispatcher.forward(request, response);
+//		dispatcher.forward(request, response);
 		
 		/* Exemplo de fluxo:
 		 * 

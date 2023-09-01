@@ -52,11 +52,10 @@ public class Usuario {
 		return this.dataNascimento;
 	}
 	
-	private void setDataNascimento(String data) {
+	public void setDataNascimento(String data) {
 		
-		/* Será possível adicionar uma data de nascimento apenas quando instanciar um Usuario.
-		 * Método sem tratamento de Exceção adequado, pois o foco deste projeto é aprender
-		 * sobre JSP*/
+//		 * Método sem tratamento de Exceção adequado, pois o foco deste projeto é aprender
+//		 * sobre JSP*/
 		
 		SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
 		

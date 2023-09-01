@@ -13,10 +13,12 @@
 <body>
 	<ul>
 	  <c:forEach items="${lista}" var="user">
-		  <li>${user.nome} - ${user.dataNascimento} </li>
-		   
+		  <li>
+		    ${user.nome} - ${user.dataNascimento}
+		    <a href="mostrarUsuario?id=${user.id}">editar</a>
+		    <a href="removerUsuario?id=${user.id}">remover</a>
+	      </li>	   
 	  </c:forEach>
-	  
 	</ul> 
 </body>
 </html>
