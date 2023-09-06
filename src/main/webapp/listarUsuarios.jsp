@@ -1,5 +1,4 @@
-<%@page import="br.com.gabriel.entidades.Usuario"%>
-<%@page import="br.com.gabriel.servlets.NovoUsuarioServlet"%>
+<%@page import="br.com.gabriel.modelo.entidades.Usuario"%>
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
@@ -14,11 +13,15 @@
 	<ul>
 	  <c:forEach items="${lista}" var="user">
 		  <li>
-		    ${user.nome} - ${user.dataNascimento}
-		    <a href="mostrarUsuario?id=${user.id}">editar</a>
-		    <a href="removerUsuario?id=${user.id}">remover</a>
+		    <p>
+		      ${user.nome} - ${user.dataNascimento}
+		      <a href="usuarios?action=exibir&id=${user.id}"><button>editar</button></a>
+		      <a href="usuarios?action=excluir&id=${user.id}"><button>remover</button></a>
+		    </p>
 	      </li>	   
 	  </c:forEach>
-	</ul> 
+	</ul>
+	
+	<a href="form.jsp"><button>adicionar</button></a>
 </body>
 </html>

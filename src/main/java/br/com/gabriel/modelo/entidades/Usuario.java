@@ -1,4 +1,4 @@
-package br.com.gabriel.entidades;
+package br.com.gabriel.modelo.entidades;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;

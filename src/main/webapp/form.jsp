@@ -1,5 +1,5 @@
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-<c:url value="/novoUsuarioServlet" var="linkServletNovoUsuario"></c:url>
+<c:url value="/usuarios?action=criar" var="linkServlet"></c:url>
 
 <!DOCTYPE html>
 <html>
@@ -8,9 +8,8 @@
     <title>Formulário</title>
   </head>
   <body>
-	<form method="post" action="${linkServletNovoUsuario}">
-		
-		Enviar a data no formato correto para não gerar exceção rs  ;)<br><br><br>
+  
+	<form action="${linkServlet}" method="post">
 		
 		<label for="usernome">Nome:</label>
 		<input id=usernome type="text" name="nome">

@@ -1,3 +1,6 @@
+<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<c:url value="/usuarios?action=atualizar&id=${usuario.id}" var="linkServlet"></c:url>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -5,8 +8,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<form action="atualizarUsuario?id=${usuario.id}" method="post">
-	    Enviar a data no formato correto para não gerar exceção rs  ;)<br><br><br>
+	<form action="${linkServlet}" method="post">
 		
 		<label for="usernome">Nome:</label>
 		<input id=usernome type="text" name="nome" value="${usuario.nome}">

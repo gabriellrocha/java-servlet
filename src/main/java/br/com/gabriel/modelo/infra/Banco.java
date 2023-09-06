@@ -1,9 +1,9 @@
-package br.com.gabriel.infra;
+package br.com.gabriel.modelo.infra;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import br.com.gabriel.entidades.Usuario;
+import br.com.gabriel.modelo.entidades.Usuario;
 
 public class Banco {
 	
