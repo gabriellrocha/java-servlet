@@ -2,6 +2,7 @@ package br.com.gabriel.servlets;
 
 import java.io.IOException;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -25,35 +26,51 @@ public class ServletApp extends HttpServlet {
 	@Override
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
+		String retorno = null;
 		String action = request.getParameter("action");
 		
 		if(action.equals("criar")) {
-			
+						
 			Criar obj = new Criar();
-			obj.executar(request, response);
+			retorno = obj.executar(request, response);
 			
 			
 		} else if (action.equals("listar")) {	
 			
 			Listar obj = new Listar();
-			request.setAttribute("lista", bancoDB.listarUsuarios());
-			obj.executa(request, response);
+			retorno = obj.executa(request, response);
 			
 		} else if (action.equals("excluir")) {
 			
 			Excluir obj = new Excluir();
-			obj.executar(request, response);
+			retorno = obj.executar(request, response);
 			
 		} else if (action.equals("exibir")) {
 			
 			Exibir obj = new Exibir();
-			obj.executa(request, response);
+			retorno = obj.executa(request, response);
 			
 		} else if (action.equals("atualizar")) {
 			
 			Atualizar obj = new Atualizar();
-			obj.executar(request, response);
+			retorno = obj.executar(request, response);
 			
+		}
+		
+		String[] tipoEEndereco = retorno.split(":");
+		
+		/* Se o prefixo for "forward" dispacha para o jsp, do contrário o cliente(navegador)
+		 * faz o redirect
+		 * */
+		
+		if(tipoEEndereco[0].equals("forward")) {
+			// jsp devolve uma resposta para o navegador
+			RequestDispatcher dispatcher = request.getRequestDispatcher(tipoEEndereco[1]);
+			dispatcher.forward(request, response);
+			
+		} else {
+			// Navegador faz uma outra requisição pro endereço informado
+			response.sendRedirect(tipoEEndereco[1]);
 		}
 	}	
 }

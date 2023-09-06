@@ -10,14 +10,14 @@ import br.com.gabriel.servlets.ServletApp;
 
 public class Criar {
 	
-	public void executar(HttpServletRequest request, HttpServletResponse response) throws IOException {
+	public String executar(HttpServletRequest request, HttpServletResponse response) throws IOException {
 		
 		String nome = request.getParameter("nome");
 		String data = request.getParameter("dataNascimento");
 		Usuario newUsuario = new Usuario(null, nome, null, data); 
 		
 		ServletApp.bancoDB.cadastrarUsuario(newUsuario);
-		response.sendRedirect("usuarios?action=listar");
 		
+		return "redirect:usuarios?action=listar";	
 	}
 }

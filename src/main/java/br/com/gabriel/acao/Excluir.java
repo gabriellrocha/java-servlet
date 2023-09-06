@@ -9,12 +9,12 @@ import br.com.gabriel.servlets.ServletApp;
 
 public class Excluir {
 	
-	public void executar(HttpServletRequest request, HttpServletResponse response) throws IOException {
+	public String executar(HttpServletRequest request, HttpServletResponse response) throws IOException {
 		
 		Long id = Long.parseLong(request.getParameter("id"));
 		
 		ServletApp.bancoDB.removerUsuario(id);
-		response.sendRedirect("usuarios?action=listar");
 		
+		return "redirect:usuarios?action=listar";		
 	}
 }

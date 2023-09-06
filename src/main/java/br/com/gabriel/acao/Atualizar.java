@@ -9,14 +9,15 @@ import br.com.gabriel.servlets.ServletApp;
 
 public class Atualizar {
 	
-	public void executar(HttpServletRequest request, HttpServletResponse response) throws IOException {
+	public String executar(HttpServletRequest request, HttpServletResponse response) throws IOException {
 		
 		Long id = Long.parseLong(request.getParameter("id"));
 		String nome = request.getParameter("nome");
 		String dataNascimento = request.getParameter("dataNascimento");
 		
 		ServletApp.bancoDB.atualizarUsuario(id, nome, dataNascimento);
-		response.sendRedirect("usuarios?action=listar");
+		
+		return "redirect:usuarios?action=listar";
 		
 		}
 }
