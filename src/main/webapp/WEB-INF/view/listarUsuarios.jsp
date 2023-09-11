@@ -22,6 +22,6 @@
 	  </c:forEach>
 	</ul>
 	
-	<a href="form.jsp"><button>Novo Usuario</button></a>
+	<a href="usuarios?action=novo"><button>Novo Usuario</button></a>
 </body>
 </html>

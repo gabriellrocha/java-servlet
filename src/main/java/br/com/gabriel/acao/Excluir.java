@@ -5,9 +5,10 @@ import java.io.IOException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import br.com.gabriel.acao.interfaces.Action;
 import br.com.gabriel.servlets.ServletApp;
 
-public class Excluir {
+public class Excluir implements Action {
 	
 	public String executar(HttpServletRequest request, HttpServletResponse response) throws IOException {
 		
