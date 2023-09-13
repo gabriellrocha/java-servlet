@@ -10,6 +10,9 @@
 <title>Insert title here</title>
 </head>
 <body>
+	
+	<h1> Usuário logado: ${usuarioLogado.login} </h1>
+	
 	<ul>
 	  <c:forEach items="${lista}" var="user">
 		  <li>

@@ -15,7 +15,7 @@ public class Criar implements Action {
 		
 		String nome = request.getParameter("nome");
 		String data = request.getParameter("dataNascimento");
-		Usuario newUsuario = new Usuario(null, nome, null, data); 
+		Usuario newUsuario = new Usuario(null, nome, data); 
 		
 		ServletApp.bancoDB.cadastrarUsuario(newUsuario);
 		

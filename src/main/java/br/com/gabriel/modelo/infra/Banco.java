@@ -1,9 +1,11 @@
 package br.com.gabriel.modelo.infra;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 import br.com.gabriel.modelo.entidades.Usuario;
+import br.com.gabriel.modelo.entidades.UsuarioLogin;
 
 public class Banco {
 	
@@ -18,6 +20,7 @@ public class Banco {
 	// Singleton
 	
 	public static Banco criarBancoDados() {
+		
 		if (instance == null) {
 			instance = new Banco();
 		}
@@ -25,7 +28,11 @@ public class Banco {
 		return instance;
 	}
 	
+	// UsuariosLogin previamente cadastrados
+	private static UsuarioLogin teste [] = {new UsuarioLogin("Gabriel", "123")};
+	
 	private static List<Usuario> lista = new ArrayList<>();
+	private static List<UsuarioLogin> listaUsuarioLogin = new ArrayList<>(Arrays.asList(teste));
 	
 	public void cadastrarUsuario(Usuario usuario) {
 		usuario.setId(incrementarId());
@@ -65,5 +72,15 @@ public class Banco {
 	
 	private long incrementarId() {
 		return idUser ++;
+	}
+	
+	public UsuarioLogin existeUsuario(String login, String senha) {
+		
+		for(UsuarioLogin u: listaUsuarioLogin) {
+			if(u.ehIgual(login, senha)) {
+				return u;		
+			}
+		}
+		return null;
 	}
 }
