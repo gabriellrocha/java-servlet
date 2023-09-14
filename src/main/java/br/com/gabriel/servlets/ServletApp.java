@@ -8,7 +8,6 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 
 import br.com.gabriel.acao.interfaces.Action;
 import br.com.gabriel.modelo.infra.Banco;
@@ -26,17 +25,7 @@ public class ServletApp extends HttpServlet {
 				
 		String action = request.getParameter("action");
 		
-		HttpSession session = request.getSession();
-		boolean usuarioNaoLogado = session.getAttribute("usuarioLogado") == null;
-		boolean eUmaAcaoProtegida = !(action.equals("login") || action.equals("loginForm"));
-		
-		if(eUmaAcaoProtegida && usuarioNaoLogado) {
-			response.sendRedirect("usuarios?action=loginForm");
-			return; 
-		}
-		
 		String pathJSP = null;
-		
 		
 		// nome qualificado da classe
 		String nomeClasse = "br.com.gabriel.acao." + action.substring(0, 1).toUpperCase() + action.substring(1);

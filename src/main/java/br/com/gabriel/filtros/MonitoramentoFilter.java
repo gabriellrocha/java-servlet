@@ -30,7 +30,7 @@ public class MonitoramentoFilter implements Filter {
 		
 		long millisAfter = System.currentTimeMillis();
 		
-		System.out.println("Tempo de execução da acão " + action + ":" + (millisAfter - millisBefore));
+		System.out.println("Tempo de execução da acão " + action + ": " + (millisAfter - millisBefore) + " milissegundos");
 	}
 
 	@Override
@@ -38,6 +38,5 @@ public class MonitoramentoFilter implements Filter {
 		// TODO Auto-generated method stub
 		
 	}
-	
 	
 }
