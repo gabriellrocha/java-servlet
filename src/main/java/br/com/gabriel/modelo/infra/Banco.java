@@ -29,7 +29,7 @@ public class Banco {
 	}
 	
 	// UsuariosLogin previamente cadastrados
-	private static UsuarioLogin teste [] = {new UsuarioLogin("Gabriel", "123")};
+	private static UsuarioLogin teste [] = {new UsuarioLogin("Gabriel", "123"), new UsuarioLogin("Maria", "123")};
 	
 	private static List<Usuario> lista = new ArrayList<>();
 	private static List<UsuarioLogin> listaUsuarioLogin = new ArrayList<>(Arrays.asList(teste));

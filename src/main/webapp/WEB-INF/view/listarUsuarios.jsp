@@ -13,6 +13,8 @@
 	
 	<h1> Usuário logado: ${usuarioLogado.login} </h1>
 	
+	<c:import url="logout-parcial.jsp"></c:import>
+	
 	<ul>
 	  <c:forEach items="${lista}" var="user">
 		  <li>

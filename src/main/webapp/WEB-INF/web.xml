@@ -15,4 +15,11 @@
     <url-pattern>/criarUsuario</url-pattern>
   </servlet-mapping>
   
+  <!-- Tempo de vida do HttpSession -->
+  <session-config>
+    <session-timeout>
+      1
+    </session-timeout>
+  </session-config>
+  
 </web-app>

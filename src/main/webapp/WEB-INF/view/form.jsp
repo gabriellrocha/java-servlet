@@ -8,7 +8,8 @@
     <title>Formulário</title>
   </head>
   <body>
-  
+  	
+  	<c:import url="logout-parcial.jsp"></c:import>
 	<form action="${linkServlet}" method="post">
 		
 		<label for="usernome">Nome:</label>
