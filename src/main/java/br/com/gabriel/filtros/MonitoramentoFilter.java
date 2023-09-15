@@ -10,13 +10,12 @@ import javax.servlet.ServletRequest;
 import javax.servlet.ServletResponse;
 import javax.servlet.annotation.WebFilter;
 
-@WebFilter(urlPatterns = {"/usuarios", "/criarUsuario"})
+//@WebFilter(urlPatterns = "/usuarios")
 public class MonitoramentoFilter implements Filter {
 
 	@Override
 	public void destroy() {
-		// TODO Auto-generated method stub
-		
+
 	}
 
 	@Override
@@ -35,7 +34,6 @@ public class MonitoramentoFilter implements Filter {
 
 	@Override
 	public void init(FilterConfig arg0) throws ServletException {
-		// TODO Auto-generated method stub
 		
 	}
 	

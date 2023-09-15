@@ -7,13 +7,13 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import br.com.gabriel.acao.interfaces.Action;
-import br.com.gabriel.servlets.ServletApp;
+import br.com.gabriel.modelo.infra.Banco;
 
 public class Listar implements Action {
 	
 	public String executar(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		request.setAttribute("lista", ServletApp.bancoDB.listarUsuarios());
+		request.setAttribute("lista", Banco.criarBancoDados().listarUsuarios());
 		
 		return "forward:listarUsuarios.jsp";
 	}

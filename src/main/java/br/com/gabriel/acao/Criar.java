@@ -7,7 +7,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import br.com.gabriel.acao.interfaces.Action;
 import br.com.gabriel.modelo.entidades.Usuario;
-import br.com.gabriel.servlets.ServletApp;
+import br.com.gabriel.modelo.infra.Banco;
 
 public class Criar implements Action {
 	
@@ -17,8 +17,8 @@ public class Criar implements Action {
 		String data = request.getParameter("dataNascimento");
 		Usuario newUsuario = new Usuario(null, nome, data); 
 		
-		ServletApp.bancoDB.cadastrarUsuario(newUsuario);
-		
+		Banco.criarBancoDados().cadastrarUsuario(newUsuario);
+				
 		return "redirect:usuarios?action=listar";	
 	}
 }

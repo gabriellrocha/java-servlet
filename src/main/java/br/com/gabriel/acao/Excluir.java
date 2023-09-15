@@ -6,7 +6,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import br.com.gabriel.acao.interfaces.Action;
-import br.com.gabriel.servlets.ServletApp;
+import br.com.gabriel.modelo.infra.Banco;
 
 public class Excluir implements Action {
 	
@@ -14,8 +14,8 @@ public class Excluir implements Action {
 		
 		Long id = Long.parseLong(request.getParameter("id"));
 		
-		ServletApp.bancoDB.removerUsuario(id);
-		
+		Banco.criarBancoDados().removerUsuario(id);
+				
 		return "redirect:usuarios?action=listar";		
 	}
 }
