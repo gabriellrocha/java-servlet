@@ -53,6 +53,9 @@ public class ControladorFilter implements Filter {
 		
 		/* Se o prefixo for "forward" dispacha para o jsp
 		 * Se for "redirect" o cliente (navegador) faz um redirecionamento pro endereço informado
+		 * 
+		 * Devolve um redirect para o navegador, que automáticamente enviará uma requisição, ou
+		 * devolve um HTML(JSP). 
 		 * */
 		
 		if(forwarOrRedirect[0].equals("forward")) {
